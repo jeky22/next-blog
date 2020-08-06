@@ -1,5 +1,5 @@
 ---
-title: 소개
+title: Introduce
 parent: Home
 has_children: true
 nav_order: 1

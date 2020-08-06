@@ -107,6 +107,4 @@ compress_html:
   startings: []
   blanklines: false
   profile: false
-  
-remote_theme : pmarsceill/just-the-docs
-
+ 

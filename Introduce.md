@@ -1,6 +1,5 @@
 ---
-title: Home
-has_children: true
+title: Introduce
 nav_order: 2
 ---
 # 소개

@@ -3,6 +3,9 @@ title: Introduce
 nav_order: 1
 ---
 # 소개
+
+<p align="center"><img src="https://user-images.githubusercontent.com/38278199/89497542-7f3fc100-d7f7-11ea-8536-22d087f6f1f0.jpg" width="300" ></p>
+
 안녕하세요! 이제찬입니다
 
 웹개발을 주로 공부해왔으며 풀스택개발자를 꿈꾸고 있습니다.

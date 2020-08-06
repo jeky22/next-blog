@@ -1,6 +1,6 @@
 ---
 title: Introduce
-nav_order: 2
+nav_order: 1
 ---
 # 소개
 안녕하세요! 이제찬입니다

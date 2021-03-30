@@ -1,17 +1,20 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
+import Chip from '@material-ui/core/Chip';
+import FaceIcon from '@material-ui/icons/Face';
+import DoneIcon from '@material-ui/icons/Done';
 
 export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Create Next App</title>
+        <title>Jeky blog</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
+          개발자 이제찬
         </h1>
 
         <p className={styles.description}>
@@ -21,13 +24,27 @@ export default function Home() {
 
         <div className={styles.grid}>
           <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
+            <h3>만들 재료 &rarr;</h3>
+            <Chip
+              icon={<FaceIcon />}
+              label="Primary clickable"
+              clickable
+              color="primary"
+              deleteIcon={<DoneIcon />}
+            />
           </a>
 
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
+          <a href="https://hyeee.me/" className={styles.card}>
+            <h3>레이아웃 구성 &rarr;</h3>
+            <p>page 1 경력? </p>
+          </a>
+          <a href="https://mattfarley.ca/" className={styles.card}>
+            <h3>레이아웃 구성 &rarr;</h3>
+            <p>page 2 기술스택 </p>
+          </a>
+          <a href="https://hyeee.me/" className={styles.card}>
+            <h3>레이아웃 구성 &rarr;</h3>
+            <p>page 1 </p>
           </a>
 
           <a

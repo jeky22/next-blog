@@ -1,82 +1,101 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
-import Chip from '@material-ui/core/Chip';
-import FaceIcon from '@material-ui/icons/Face';
-import DoneIcon from '@material-ui/icons/Done';
+import Project from './src/components/Project'
+import Footer from './src/components/Footer'
+import Timehistory from './src/components/Timehistory'
+import Title from './src/components/Title'
+import Skills from './src/components/Skills'
+import { createMuiTheme, ThemeProvider, makeStyles } from '@material-ui/core/styles';
+import { lightBlue } from '@material-ui/core/colors';
+import { Grid } from '@material-ui/core';
+import ReactFullpage from "@fullpage/react-fullpage";
+import { useState } from 'react'
+import classNames from 'classnames';
 
-export default function Home() {
+
+const fonts = createMuiTheme({
+  palette: {
+    primary: {
+      main: lightBlue['600'],
+    },
+    secondary: {
+      main: lightBlue['700'],
+    },
+  },
+  typography: {
+    fontFamily: [
+      'seoul-hangang-jung-m'
+    ].join(','),
+  },
+});
+
+const useStyles = makeStyles((theme) => ({
+  gridMargin: {
+    margin: "auto"
+  },
+}));
+
+
+export default function Index() {
+  const classes = useStyles()
+  let [start, setStart] = useState([true, false, false, false, false])
+
+  const onLeave = function (origin, destination, direction) {
+    setStart(
+      start.map((_, index) => {
+        if (index === destination.index) return true
+        return false
+      })
+    )
+  }
+  const all = [
+    <Title start={start[0]} />,
+    <Skills start={start[1]} />,
+    <Timehistory start={start[2]} />,
+    <Project start={start[3]} />,
+    <Footer start={start[4]} />,
+  ]
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Jeky blog</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          개발자 이제찬
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>만들 재료 &rarr;</h3>
-            <Chip
-              icon={<FaceIcon />}
-              label="Primary clickable"
-              clickable
-              color="primary"
-              deleteIcon={<DoneIcon />}
-            />
-          </a>
-
-          <a href="https://hyeee.me/" className={styles.card}>
-            <h3>레이아웃 구성 &rarr;</h3>
-            <p>page 1 경력? </p>
-          </a>
-          <a href="https://mattfarley.ca/" className={styles.card}>
-            <h3>레이아웃 구성 &rarr;</h3>
-            <p>page 2 기술스택 </p>
-          </a>
-          <a href="https://hyeee.me/" className={styles.card}>
-            <h3>레이아웃 구성 &rarr;</h3>
-            <p>page 1 </p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
-    </div>
+    <span>
+      <ThemeProvider theme={fonts}>
+        <ul id="menu">
+          <li data-menuanchor="0">
+            <a href="#0">zero slide</a>
+          </li>
+          <li data-menuanchor="1" class="active">
+            <a href="#1">First slide</a>
+          </li>
+          <li data-menuanchor="2">
+            <a href="#2">Second slide</a>
+          </li>
+          <li data-menuanchor="3">
+            <a href="#3">Third slide</a>
+          </li>
+          <li data-menuanchor="4">
+            <a href="#4">quird slide</a>
+          </li>
+        </ul>
+        <ReactFullpage
+          onLeave={onLeave}
+          scrollingSpeed={1000}
+          touchSensitivity={50}
+          anchors={['0', '1', '2', '3', '4',]}
+          menu={'#menu'}
+          sectionsColor={["", "", "", lightBlue['50']]}
+          render={(comp) =>
+            console.log("render prop change") || (
+              <ReactFullpage.Wrapper >
+                <Grid container>
+                  {all.map((item, index) => (
+                    <Grid container data-anchor={index} item xs={12} key={index.toString()} className="section">
+                      <Grid item xs={12} md={8} className={classes.gridMargin} >
+                        {item}
+                      </Grid>
+                    </Grid>
+                  ))}
+                </Grid>
+              </ReactFullpage.Wrapper>
+            )}
+        />
+      </ThemeProvider>
+    </span>
   )
 }

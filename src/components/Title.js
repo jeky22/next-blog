@@ -1,8 +1,8 @@
 import Head from 'next/head'
-import styles from '../../../styles/Home.module.css'
+import styles from '../../styles/Home.module.css'
 import React, { useState } from 'react';
 import Grid from '@material-ui/core/Grid';
-import Themecolor from '../data/Themecolor'
+import {Themecolor} from '../../util/data/Themecolor.js'
 import { makeStyles } from '@material-ui/core/styles';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import classNames from 'classnames';

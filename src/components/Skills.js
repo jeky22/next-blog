@@ -1,4 +1,3 @@
-import Head from 'next/head'
 import Chip from '@material-ui/core/Chip';
 import Avatar from '@material-ui/core/Avatar';
 import DoneIcon from '@material-ui/icons/Done';
@@ -7,13 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import { makeStyles } from '@material-ui/core/styles';
 import React, { useEffect, useState } from 'react';
-import Paper from '@material-ui/core/Paper';
-import Grid from '@material-ui/core/Grid';
-import Themecolor from '../data/Themecolor'
-import Careerdata from '../data/Careerdata'
-import { borders } from '@material-ui/system';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
-import Slider from "react-slick";
+import {Careerdata} from '../../util/data/Careerdata.js'
 import Button from '@material-ui/core/Button';
 import classNames from 'classnames';
 

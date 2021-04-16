@@ -6,15 +6,12 @@ import TimelineConnector from '@material-ui/lab/TimelineConnector';
 import TimelineContent from '@material-ui/lab/TimelineContent';
 import TimelineOppositeContent from '@material-ui/lab/TimelineOppositeContent';
 import TimelineDot from '@material-ui/lab/TimelineDot';
-import LaptopMacIcon from '@material-ui/icons/LaptopMac';
-import HotelIcon from '@material-ui/icons/Hotel';
-import RepeatIcon from '@material-ui/icons/Repeat';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import Box from '@material-ui/core/Box';
 import React, { useEffect, useState } from 'react';
-import Timelinedata from '../data/Timelinedata'
+import {Timelinedata} from '../../util/data/Timelinedata.js'
 import FiberManualRecordSharpIcon from '@material-ui/icons/FiberManualRecordSharp';
 
 import classNames from 'classnames';

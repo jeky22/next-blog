@@ -1,4 +1,4 @@
-const Careerdata = {
+export const Careerdata = {
   "Language": [
     { name: "JavaScript", percent: 80, color: "primary", imgsrc: "javascript",main:true },
     { name: "Python", percent: 60, color: "secondary", imgsrc: "python",main:false },
@@ -31,4 +31,3 @@ const Careerdata = {
     { name: "Material-UI", percent: 60, color: "secondary", imgsrc: "material",main:true },
   ],
 }
-export default Careerdata

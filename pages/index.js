@@ -1,8 +1,8 @@
-import Project from './src/components/Project'
-import Footer from './src/components/Footer'
-import Timehistory from './src/components/Timehistory'
-import Title from './src/components/Title'
-import Skills from './src/components/Skills'
+import Project from '../src/components/Project'
+import Footer from '../src/components/Footer'
+import Timehistory from '../src/components/Timehistory'
+import Title from '../src/components/Title'
+import Skills from '../src/components/Skills'
 import { createMuiTheme, ThemeProvider, makeStyles } from '@material-ui/core/styles';
 import { lightBlue } from '@material-ui/core/colors';
 import { Grid } from '@material-ui/core';
@@ -60,7 +60,7 @@ export default function Index() {
           <li data-menuanchor="0">
             <a href="#0">zero slide</a>
           </li>
-          <li data-menuanchor="1" class="active">
+          <li data-menuanchor="1" className={"active"}>
             <a href="#1">First slide</a>
           </li>
           <li data-menuanchor="2">

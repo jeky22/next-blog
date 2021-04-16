@@ -1,13 +1,8 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import Paper from "@material-ui/core/Paper";
-import Grid from "@material-ui/core/Grid";
-import Timehistory from "./Timehistory";
-import Themecolor from '../data/Themecolor'
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Button from '@material-ui/core/Button';
 import AlarmIcon from '@material-ui/icons/Alarm';
 import IconButton from '@material-ui/core/IconButton';
 import GitHubIcon from '@material-ui/icons/GitHub';

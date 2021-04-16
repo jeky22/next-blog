@@ -2,7 +2,7 @@ import { deepPurple, red, pink, purple, indigo, blue, grey } from '@material-ui/
 
 import { createMuiTheme } from '@material-ui/core/styles';
 
-const Themecolor = [
+export const Themecolor = [
   createMuiTheme({
     palette: {
       primary: {
@@ -74,6 +74,3 @@ const Themecolor = [
     },
   }),
 ]
-
-export default Themecolor
-

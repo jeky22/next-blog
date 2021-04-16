@@ -11,7 +11,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Box from '@material-ui/core/Box';
 import ReplayIcon from '@material-ui/icons/Replay';
 import Button from '@material-ui/core/Button';
-
+import Background from './Background'
 const useStyles = makeStyles((theme) => ({
   root: {
     width: '100%',
@@ -85,6 +85,7 @@ export default function Home(props) {
         <meta name="viewport" content="target-densitydpi=device-dpi, user-scalable=0, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, width=device-width" />
       </Head>
       <ThemeProvider theme={Themecolor[1]}>
+        <Background/>
         <Grid container justify="center"  >
           <Grid item xs={12}>
             {progress > -1 && <Typist className={styles.title} avgTypingDelay={50}>

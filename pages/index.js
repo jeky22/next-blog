@@ -22,7 +22,6 @@ import RestoreIcon from '@material-ui/icons/Restore';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
 import { Themecolor } from '../util/data/Themecolor.js'
-import { inherits } from 'util'
 
 const fonts = createMuiTheme({
   palette: {

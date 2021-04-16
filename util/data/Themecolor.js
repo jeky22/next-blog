@@ -72,5 +72,10 @@ export const Themecolor = [
         main: grey['700'],
       },
     },
+    typography: {
+      fontFamily: [
+        'seoul-hangang-jung-m'
+      ].join(','),
+    },
   }),
 ]

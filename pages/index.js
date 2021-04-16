@@ -22,6 +22,7 @@ import RestoreIcon from '@material-ui/icons/Restore';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
 import { Themecolor } from '../util/data/Themecolor.js'
+import { inherits } from 'util'
 
 const fonts = createMuiTheme({
   palette: {
@@ -47,7 +48,8 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   button: {
-    textTransform: "none"
+    textTransform: "none",
+    fontFamily: "inherit"
   },
 }));
 
@@ -58,6 +60,7 @@ export default function Index() {
   const [value, setValue] = useState(0)
 
   const onLeave = function (origin, destination, direction) {
+    setValue(destination.index)
     setStart(
       start.map((_, index) => {
         if (index === destination.index) return true
@@ -85,8 +88,9 @@ export default function Index() {
             indicatorColor="primary"
             textColor="secondary"
             centered
+            id={"menu"}
           >
-            <Tab component={Link} href={"#0"} label={`<Title />`} className={classes.button} />
+            <Tab component={Link} href={"#0"} label={`<Header />`} className={classes.button} />
             <Tab component={Link} href={"#1"} label={`<Skill />`} className={classes.button} />
             <Tab component={Link} href={"#2"} label={`<TimeLine />`} className={classes.button} />
             <Tab component={Link} href={"#3"} label={`<Project />`} className={classes.button} />
@@ -97,8 +101,6 @@ export default function Index() {
           onLeave={onLeave}
           scrollingSpeed={1000}
           touchSensitivity={50}
-          anchors={['0', '1', '2', '3', '4',]}
-          menu={'#menu'}
           sectionsColor={["", "", "", lightBlue['50']]}
           render={(comp) =>
             console.log("render prop change") || (

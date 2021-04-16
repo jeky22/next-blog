@@ -44,7 +44,6 @@ function TimelineItems(props) {
       setProgress(1)
     }, props.time)
     return () => {
-      ``
       clearInterval(timer);
     }
   })

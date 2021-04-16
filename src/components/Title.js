@@ -1,14 +1,16 @@
 import Head from 'next/head'
 import styles from '../../styles/Home.module.css'
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Grid from '@material-ui/core/Grid';
-import {Themecolor} from '../../util/data/Themecolor.js'
+import { Themecolor } from '../../util/data/Themecolor.js'
 import { makeStyles } from '@material-ui/core/styles';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import classNames from 'classnames';
 import Typist from 'react-typist';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Box from '@material-ui/core/Box';
+import ReplayIcon from '@material-ui/icons/Replay';
+import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -44,11 +46,37 @@ const useStyles = makeStyles((theme) => ({
     paddingRight: "10px",
     // border: "2px solid",
     // BorderColor: theme
-  }
+  },
+  button: {
+    textTransform: "none",
+    animation:" blink 2s ease-in infinite",
+  },
 }));
 
 export default function Home(props) {
   const classes = useStyles();
+  const [progress, setProgress] = useState(0)
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setProgress(1)
+    }, 6000)
+    return () => {
+      clearInterval(timer);
+    }
+  })
+
+  const handleChange = () => {
+    console.log('hi')
+    setProgress(-1)
+    setTimeout(() => {
+      setProgress(0)
+    }, 30)
+    setTimeout(() => {
+      setProgress(1)
+    }, 6000)
+  }
+
   return (
     <div>
       <Head>
@@ -59,7 +87,7 @@ export default function Home(props) {
       <ThemeProvider theme={Themecolor[1]}>
         <Grid container justify="center"  >
           <Grid item xs={12}>
-            <Typist className={styles.title} avgTypingDelay={50}>
+            {progress > -1 && <Typist className={styles.title} avgTypingDelay={50}>
               <span> 안녕하세요. </span>
               <Typist.Backspace count={8} delay={600} />
               <span> 사용자 친화적인 </span>
@@ -68,16 +96,32 @@ export default function Home(props) {
               <Typist.Backspace count={14} delay={600} />
               <span> 프론트엔드 개발자 </span> <br />
               <span> 이제찬 입니다.</span>
-            </Typist>
+            </Typist>}
           </Grid >
-          <Box className={classNames("animate__animated", classes.mention, "animate__delay-5s", "animate__fadeInUp",)} textAlign="center" justifyContent="center" >
+          <Grid item xs={12} container justify="center">
+            {progress > 0 &&
+              <ThemeProvider theme={Themecolor[6]}>
+                <Button
+                  variant="outlined"
+                  size="small"
+                  color="primary"
+                  className={classes.button}
+                  endIcon={<ReplayIcon />}
+                  onClick={handleChange}
+                  mb={3}
+                >
+                  다시보기
+                </Button>
+              </ThemeProvider>}
+          </Grid >
+          {progress > 0 && <Box className={classNames("animate__animated", classes.mention, "animate__fadeIn",)} textAlign="center" justifyContent="center" >
             더보기
-          </Box >
-          <Box className={classes.arrow} textAlign="center" justifyContent="center" >
+          </Box >}
+          {progress > 0 && <Box className={classNames("animate__animated", classes.arrow, "animate__fadeIn",)} textAlign="center" justifyContent="center" >
             <Box display="block" className={classes.motion}  >
               <ExpandMoreIcon style={{ fontSize: 60 }} />
             </Box>
-          </Box >
+          </Box >}
         </Grid >
       </ThemeProvider>
     </div >

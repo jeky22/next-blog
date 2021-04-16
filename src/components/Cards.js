@@ -63,29 +63,29 @@ export default function RecipeReviewCard(props) {
           <Typography variant="subtitle1" align="center" className={classes.subtitle} >
             {props.subtitle}
           </Typography>
-          <Typography variant="body1" className={classes.description}>
+          <Typography variant="body2" className={classes.description}>
             {props.description}
           </Typography>
         </div>
         <div className="back">
-          <Typography variant="h6" >#세부사항 </Typography>
+          <Typography variant="body1" >#세부사항 </Typography>
           <Box justifyContent="space-between" display="flex" className={classes.backbadge}>
-            <Typography>개발 일자 : </Typography>
+            <Typography variant="body2">개발 일자 : </Typography>
             <img src={`https://img.shields.io/github/last-commit/${props.github}?style=plastic`} />
           </Box>
           <Box justifyContent="space-between" display="flex" className={classes.backbadge}>
-            <Typography>개발 직무 : </Typography>
+            <Typography variant="body2">개발 직무 : </Typography>
             <Box><img className={classes.badgestyle} src={`https://img.shields.io/badge/-Frontend-brightgreen`} />
             <img className={classes.badgestyle} src={`https://img.shields.io/badge/-Design-brightgreen`} />
             <img className={classes.badgestyle} src={`https://img.shields.io/badge/-Backend-brightgreen`} /></Box>
           </Box>
           <Box className={classes.backtypography}>
-            <Typography variant="h6" className={classes.backtypography} display="block">#나의 기여도 </Typography>
-            {props.mypart && props.mypart.map((content, index) => <Typography key={index.toString()} className={classes.backtable} variant="body1">✔ {content}</Typography>)}
+            <Typography variant="body1" className={classes.backtypography} display="block">#나의 기여도 </Typography>
+            {props.mypart && props.mypart.map((content, index) => <Typography key={index.toString()} className={classes.backtable} variant="body2">✔ {content}</Typography>)}
           </Box>
           <Box className={classes.backstack}>
             <Divider variant="middle" />
-            <Typography variant="h6" className={classes.backtypography} display="block">#기술스택 </Typography>
+            <Typography variant="body1" className={classes.backtypography} display="block">#기술스택 </Typography>
             <Box justifyContent="space-between" display="block" >
               {props.stacks && props.stacks.map(item =>
                 <Chip

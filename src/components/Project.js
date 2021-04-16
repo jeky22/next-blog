@@ -164,9 +164,9 @@ export default function AutoGrid() {
   const classes = useStyles();
   return (
     <div>
-      <Slider {...settings}>
+      <Slider {...settings} >
         {projects.map((i, index) =>
-          <Box key={index.toString()} >
+          <Box className="custom-slick" key={index.toString()} >
             <Cards  {...projects[index]} />
             <Box textAlign="center" className={classes.boxstyle} borderRadius={16} boxShadow={4}>
               <IconButton color="primary" aria-label="add an alarm">
@@ -186,8 +186,8 @@ export default function AutoGrid() {
             </Box>
           </Box>
         )}
-        <Cards />
       </Slider>
+      {/* <Cards {...projects[1]}/> */}
       {/* 갠 프로젝트 뭐했는지 쓰자
       <Grid container>
         <Grid item xs={3}>

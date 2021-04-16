@@ -6,7 +6,8 @@
   width: 400px;
   height: 500px;
   margin: 30px auto;
-  perspective: 600px;
+  position: relative;
+  /* perspective: 600px; */
 }
 .card-container .left {
   position: absolute;
@@ -35,10 +36,11 @@
 .card-container .card {
   width: 100%;
   height: 100%;
-  background-color: white;
-  transform-style: preserve-3d;
-  transition: transform 0.7s ease-in-out;
   border-radius: 20px;
+}
+.card-container .card > div {
+  background-color: white;
+  transition: transform 0.7s ease-in-out;
 }
 .card .cover {
   width: 100%;
@@ -48,12 +50,19 @@
 .card .name {
   text-align: center;
 }
-.card-container .left:hover ~ .card {
-  transform: rotateY(-180deg);
+.card-container .left:hover ~ .card > .back {
+  transform: rotateY(0);
 }
-.card-container .right:hover ~ .card {
+.card-container .left:hover ~ .card > .front {
   transform: rotateY(180deg);
 }
+.card-container .right:hover ~ .card > .back {
+  transform: rotateY(0);
+}
+.card-container .right:hover ~ .card > .front {
+  transform: rotateY(-180deg);
+}
+
 .card .front,
 .card .back {
   position: absolute;
@@ -72,7 +81,6 @@
 .card .back {
   padding: 20px;
   transform: rotateY(180deg);
-  
 }
 
 .card .back {

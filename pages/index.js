@@ -9,7 +9,19 @@ import { Grid } from '@material-ui/core';
 import ReactFullpage from "@fullpage/react-fullpage";
 import { useState } from 'react'
 import classNames from 'classnames';
+import Paper from '@material-ui/core/Paper';
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
+import Link from '@material-ui/core/Link';
+import AppBar from '@material-ui/core/AppBar';
+import { positions } from '@material-ui/system';
 
+import BottomNavigation from '@material-ui/core/BottomNavigation';
+import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
+import RestoreIcon from '@material-ui/icons/Restore';
+import FavoriteIcon from '@material-ui/icons/Favorite';
+import LocationOnIcon from '@material-ui/icons/LocationOn';
+import { Themecolor } from '../util/data/Themecolor.js'
 
 const fonts = createMuiTheme({
   palette: {
@@ -31,12 +43,19 @@ const useStyles = makeStyles((theme) => ({
   gridMargin: {
     margin: "auto"
   },
+  root: {
+    flexGrow: 1,
+  },
+  button: {
+    textTransform: "none"
+  },
 }));
 
 
 export default function Index() {
   const classes = useStyles()
   let [start, setStart] = useState([true, false, false, false, false])
+  const [value, setValue] = useState(0)
 
   const onLeave = function (origin, destination, direction) {
     setStart(
@@ -46,6 +65,9 @@ export default function Index() {
       })
     )
   }
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
   const all = [
     <Title start={start[0]} />,
     <Skills start={start[1]} />,
@@ -56,23 +78,21 @@ export default function Index() {
   return (
     <span>
       <ThemeProvider theme={fonts}>
-        <ul id="menu">
-          <li data-menuanchor="0">
-            <a href="#0">zero slide</a>
-          </li>
-          <li data-menuanchor="1" className={"active"}>
-            <a href="#1">First slide</a>
-          </li>
-          <li data-menuanchor="2">
-            <a href="#2">Second slide</a>
-          </li>
-          <li data-menuanchor="3">
-            <a href="#3">Third slide</a>
-          </li>
-          <li data-menuanchor="4">
-            <a href="#4">quird slide</a>
-          </li>
-        </ul>
+        <AppBar color="transparent" position="fixed" className={classes.root}>
+          <Tabs
+            value={value}
+            onChange={handleChange}
+            indicatorColor="primary"
+            textColor="secondary"
+            centered
+          >
+            <Tab component={Link} href={"#0"} label={`<Title />`} className={classes.button} />
+            <Tab component={Link} href={"#1"} label={`<Skill />`} className={classes.button} />
+            <Tab component={Link} href={"#2"} label={`<TimeLine />`} className={classes.button} />
+            <Tab component={Link} href={"#3"} label={`<Project />`} className={classes.button} />
+            <Tab component={Link} href={"#4"} label={`<Footer />`} className={classes.button} />
+          </Tabs>
+        </AppBar>
         <ReactFullpage
           onLeave={onLeave}
           scrollingSpeed={1000}

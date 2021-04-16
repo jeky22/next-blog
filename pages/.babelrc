@@ -1,0 +1,13 @@
+{
+  "presets": ["next/babel"],
+  "plugins": [
+    [
+      "styled-components",
+      {
+        "ssr": true, // 서버사이드 렌더링 옵션
+        "displayName": true, // 태그 class명에 디렉토리, 컴포넌트명 추가
+        "preprocess": false
+      }
+    ]
+  ]
+}

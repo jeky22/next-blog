@@ -11,7 +11,7 @@ import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import Box from '@material-ui/core/Box';
 import React, { useEffect, useState } from 'react';
-import {Timelinedata} from '../../util/data/Timelinedata.js'
+import { Timelinedata } from '../../util/data/Timelinedata.js'
 import FiberManualRecordSharpIcon from '@material-ui/icons/FiberManualRecordSharp';
 
 import classNames from 'classnames';
@@ -21,8 +21,10 @@ const useStyles = makeStyles((theme) => ({
     padding: '6px 16px',
   },
   item: {
-    padding: '0',
-    margin: '0',
+    [theme.breakpoints.up('xs')]: {
+      padding: '0',
+      margin: '0',
+    }
   },
   secondaryTdail: {
     backgroundColor: theme.palette.secondary.main,
@@ -62,7 +64,7 @@ function TimelineItems(props) {
       </TimelineSeparator>
       <TimelineContent>
         < Paper elevation={3} className={classNames("animate__animated", classes.paper, { "animate__flipInX": progress > 0 })}>
-          <Typography variant="h6" component="h1">
+          <Typography variant="h6">
             {progress > 0 ? props.title : ""}
           </Typography>
           {props.detail && progress > 0 ? <Divider /> : ""}
@@ -84,13 +86,16 @@ export default function Timehistory(props) {
   return (
     <div>
       {props.start &&
-        <Box borderRadius={10} border={3} borderColor="secondary.main" boxShadow={8}  >
-          <Timeline align="left">
-            {Timelinedata.map((t, index) =>
-              <TimelineItems key={index} {...t} time={500 + index * 300} />
-            )}
-          </Timeline>
-        </Box>}
+        <div>
+          <Typography variant="h5"> {"<TimeLine />"} </Typography>
+          <Box borderRadius={10} border={3} borderColor="secondary.main" boxShadow={8}  >
+            <Timeline align="left">
+              {Timelinedata.map((t, index) =>
+                <TimelineItems key={index} {...t} time={500 + index * 300} />
+              )}
+            </Timeline>
+          </Box>
+        </div>}
     </div>
   );
 }

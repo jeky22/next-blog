@@ -2,7 +2,7 @@ import Head from 'next/head'
 import styles from '../../styles/Home.module.css'
 import React, { useState, useEffect } from 'react';
 import Grid from '@material-ui/core/Grid';
-import { Themecolor } from '../../util/data/Themecolor.js'
+// import { Themecolor } from '../../util/data/Themecolor.js'
 import { makeStyles } from '@material-ui/core/styles';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import classNames from 'classnames';
@@ -12,6 +12,9 @@ import Box from '@material-ui/core/Box';
 import ReplayIcon from '@material-ui/icons/Replay';
 import Button from '@material-ui/core/Button';
 import Background from './Background'
+import Fireworks from './Fireworks'
+import Typography from '@material-ui/core/Typography';
+
 const useStyles = makeStyles((theme) => ({
   root: {
     width: '100%',
@@ -49,7 +52,10 @@ const useStyles = makeStyles((theme) => ({
   },
   button: {
     textTransform: "none",
-    animation:" blink 2s ease-in infinite",
+    border: "1px solid",
+    marginTop: "40px",
+    fontWeight: 1000,
+    animation: " blinkBtn 1.5s cubic-bezier(0.85, 0, 0.15, 1) infinite",
   },
 }));
 
@@ -79,16 +85,12 @@ export default function Home(props) {
 
   return (
     <div>
-      <Head>
-        <title>Jeky blog</title>
-        <link rel="icon" href="/favicon.ico" />
-        <meta name="viewport" content="target-densitydpi=device-dpi, user-scalable=0, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, width=device-width" />
-      </Head>
-      <ThemeProvider theme={Themecolor[1]}>
-        <Background/>
-        <Grid container justify="center"  >
-          <Grid item xs={12}>
-            {progress > -1 && <Typist className={styles.title} avgTypingDelay={50}>
+      <Background />
+      {/* <Fireworks/> */}
+      <Grid container justify="center"  >
+        <Grid item xs={12}>
+          {progress > -1 && <Typography variant='h3' align={'center'}>
+            <Typist className={styles.title} avgTypingDelay={50}>
               <span> 안녕하세요. </span>
               <Typist.Backspace count={8} delay={600} />
               <span> 사용자 친화적인 </span>
@@ -97,34 +99,33 @@ export default function Home(props) {
               <Typist.Backspace count={14} delay={600} />
               <span> 프론트엔드 개발자 </span> <br />
               <span> 이제찬 입니다.</span>
-            </Typist>}
-          </Grid >
-          <Grid item xs={12} container justify="center">
-            {progress > 0 &&
-              <ThemeProvider theme={Themecolor[6]}>
-                <Button
-                  variant="outlined"
-                  size="small"
-                  color="primary"
-                  className={classes.button}
-                  endIcon={<ReplayIcon />}
-                  onClick={handleChange}
-                  mb={3}
-                >
-                  다시보기
-                </Button>
-              </ThemeProvider>}
-          </Grid >
-          {progress > 0 && <Box className={classNames("animate__animated", classes.mention, "animate__fadeIn",)} textAlign="center" justifyContent="center" >
-            더보기
-          </Box >}
-          {progress > 0 && <Box className={classNames("animate__animated", classes.arrow, "animate__fadeIn",)} textAlign="center" justifyContent="center" >
-            <Box display="block" className={classes.motion}  >
-              <ExpandMoreIcon style={{ fontSize: 60 }} />
-            </Box>
-          </Box >}
+            </Typist>
+          </Typography>}
         </Grid >
-      </ThemeProvider>
-    </div >
+        <Grid item xs={12} container justify="center">
+          {progress > 0 &&
+            <Button
+              variant="outlined"
+              size="small"
+              color="primary.dark"
+              className={classes.button}
+              endIcon={<ReplayIcon />}
+              onClick={handleChange}
+              mb={3}
+            >
+              다시보기
+                </Button>
+          }
+        </Grid >
+        {progress > 0 && <Box className={classNames("animate__animated", classes.mention, "animate__fadeIn",)} textAlign="center" justifyContent="center" >
+          더보기
+          </Box >}
+        {progress > 0 && <Box className={classNames("animate__animated", classes.arrow, "animate__fadeIn",)} textAlign="center" justifyContent="center" >
+          <Box display="block" className={classes.motion}  >
+            <ExpandMoreIcon style={{ fontSize: 60 }} />
+          </Box>
+        </Box >}
+      </Grid >
+    </div>
   )
 }

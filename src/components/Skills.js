@@ -6,13 +6,10 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import { makeStyles } from '@material-ui/core/styles';
 import React, { useEffect, useState } from 'react';
-import {Careerdata} from '../../util/data/Careerdata.js'
+import { Skillsdata } from '../../util/data/Skillsdata.js'
 import Button from '@material-ui/core/Button';
 import classNames from 'classnames';
 
-
-import { createMuiTheme, ThemeProvider, useTheme } from '@material-ui/core/styles';
-import { BorderColor } from '@material-ui/icons';
 
 function LinearProgressWithLabel(props) {
   const classes = useStyles();
@@ -23,10 +20,9 @@ function LinearProgressWithLabel(props) {
     const timer = setInterval(() => {
       setProgress((p) => p >= props.percent ? props.percent : p + 1)
     }, 13)
-    return () => {
-      clearInterval(timer);
-    }
-  })
+    return () => clearInterval(timer)
+  }, [progress])
+
 
   return (
     <Box display="flex" alignItems="center" className={classes.progress}>
@@ -83,23 +79,25 @@ const useStyles = makeStyles((theme) => ({
 export default function Skills(props) {
   const classes = useStyles();
   const [details, setDetail] = useState(true)
+
   return (
     <div>
       {props.start && <div>
+        <Typography variant="h5"> {"<Skills />"} </Typography>
         <Box justifyContent="flex-end" display="flex" className={classes.vertical}>
           <Button size="small" onClick={() => setDetail(!details)}>
             {details ? "Sub_Skills\t\>" : "Main_Skills\t\>"}
           </Button>
         </Box>
-        {Object.values(Careerdata).map((kind, index) => {
+        {Object.values(Skillsdata).map((kind, index) => {
           let isEmpty = kind.filter((k) => k.main === details).length > 0
           return (
             <Box key={index.toString()} className={classNames("animate__animated", { "animate__bounceInLeft": props.start, "animate__delay-0.5s": props.start, "animate__bounceOutRight": !props.start })}>
               {isEmpty && <Typography variant="subtitle1">
-                {"#"}{Object.keys(Careerdata)[index]}
+                {"#"}{Object.keys(Skillsdata)[index]}
               </Typography>}
               <Box borderColor="secondary.main" className={classes.paper} >
-                {kind.map(c => (details === c.main) && <LinearProgressWithLabel key={c.name} {...c} theme={index} />)}
+                {kind.map((c, i) => (details === c.main) && <LinearProgressWithLabel key={c.name} {...c} theme={index} />)}
               </Box>
             </Box>
           )

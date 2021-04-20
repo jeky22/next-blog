@@ -1,6 +1,6 @@
 import React from "react";
-import Document, {DocumentContext, Head, Html, Main, NextScript} from "next/document";
-import {ServerStyleSheets} from "@material-ui/styles";
+import Document, { DocumentContext, Head, Html, Main, NextScript } from "next/document";
+import { ServerStyleSheets } from "@material-ui/styles";
 
 class AppDocument extends Document {
     static async getInitialProps(ctx) {
@@ -9,7 +9,7 @@ class AppDocument extends Document {
 
         ctx.renderPage = () => originalRenderPage({
             enhanceApp: App => props => {
-                return sheet.collect(<App {...props}/>)
+                return sheet.collect(<App {...props} />)
             }
         });
 
@@ -29,7 +29,7 @@ class AppDocument extends Document {
     render() {
         return (
             <Html>
-                <Head />
+                <Head/>
                 <body>
                     <Main />
                     <NextScript />

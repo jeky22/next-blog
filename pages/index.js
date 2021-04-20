@@ -3,7 +3,7 @@ import Footer from '../src/components/Footer'
 import Timehistory from '../src/components/Timehistory'
 import Title from '../src/components/Title'
 import Skills from '../src/components/Skills'
-import { createMuiTheme, ThemeProvider, makeStyles } from '@material-ui/core/styles';
+import { createMuiTheme, ThemeProvider, responsiveFontSizes, makeStyles } from '@material-ui/core/styles';
 import { lightBlue } from '@material-ui/core/colors';
 import { Grid } from '@material-ui/core';
 import ReactFullpage from "@fullpage/react-fullpage";
@@ -14,16 +14,25 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Link from '@material-ui/core/Link';
 import AppBar from '@material-ui/core/AppBar';
-import { positions } from '@material-ui/system';
+import { color, fontWeight, positions } from '@material-ui/system';
 
 import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 import RestoreIcon from '@material-ui/icons/Restore';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
-import { Themecolor } from '../util/data/Themecolor.js'
+// import { Themecolor } from '../util/data/Themecolor.js'
 
-const fonts = createMuiTheme({
+let fonts = createMuiTheme({
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 600,
+      md: 960,
+      lg: 1280,
+      xl: 1920,
+    },
+  },
   palette: {
     primary: {
       main: lightBlue['600'],
@@ -33,11 +42,53 @@ const fonts = createMuiTheme({
     },
   },
   typography: {
+    h5: {
+      fontWeight: 1000,
+      color: lightBlue['900'],
+      display: 'inline-block',
+      backgroundColor: lightBlue['50'],
+      marginLeft: "10px",
+      marginBottom: "10px",
+      padding: "3px",
+      borderRadius: "6px",
+      border: "2px solid " + lightBlue['700']
+    },
+
     fontFamily: [
       'seoul-hangang-jung-m'
     ].join(','),
   },
 });
+
+fonts.typography.body1 = {
+  [fonts.breakpoints.down('xs')]: {
+    fontSize: '0.8rem',
+  },
+};
+fonts.typography.body2 = {
+  [fonts.breakpoints.down('xs')]: {
+    fontSize: '0.75rem',
+  },
+};
+
+fonts.typography.h5 = {
+  ...fonts.typography.h5,
+  [fonts.breakpoints.down('sm')]: {
+    fontSize: '1.2rem',
+  },
+};
+fonts.typography.h6 = {
+  ...fonts.typography.h6,
+  [fonts.breakpoints.down('xs')]: {
+    fontSize: '0.9rem',
+  },
+};
+fonts.typography.button = {
+  ...fonts.typography.button,
+  [fonts.breakpoints.down('xs')]: {
+    fontSize: '0.8rem',
+  },
+};
 
 const useStyles = makeStyles((theme) => ({
   gridMargin: {
@@ -48,7 +99,8 @@ const useStyles = makeStyles((theme) => ({
   },
   button: {
     textTransform: "none",
-    fontFamily: "inherit"
+    minWidth: "0 !important",
+    whiteSpace: "nowrap"
   },
 }));
 
@@ -87,6 +139,7 @@ export default function Index() {
             indicatorColor="primary"
             textColor="secondary"
             centered
+            variant="fullWidth"
             id={"menu"}
           >
             <Tab component={Link} href={"#0"} label={`<Header />`} className={classes.button} />
@@ -107,7 +160,7 @@ export default function Index() {
                 <Grid container>
                   {all.map((item, index) => (
                     <Grid container data-anchor={index} item xs={12} key={index.toString()} className="section">
-                      <Grid item xs={12} md={8} className={classes.gridMargin} >
+                      <Grid item xs={11} sm={10} md={8} className={classes.gridMargin} >
                         {item}
                       </Grid>
                     </Grid>

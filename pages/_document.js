@@ -29,9 +29,7 @@ class AppDocument extends Document {
     render() {
         return (
             <Html>
-                <Head >
-                    <meta name="google-site-verification" content="RN2CstU6sdPwa8PeQ71QqsRvC9CIsh8oMrLh3sZQqsQ" />
-                </Head >
+                <Head/>
                 <body>
                     <Main />
                     <NextScript />

@@ -2,7 +2,7 @@ import Head from 'next/head'
 import styles from '../../styles/Home.module.css'
 import React, { useState, useEffect } from 'react';
 import Grid from '@material-ui/core/Grid';
-import { Themecolor } from '../../util/data/Themecolor.js'
+// import { Themecolor } from '../../util/data/Themecolor.js'
 import { makeStyles } from '@material-ui/core/styles';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import classNames from 'classnames';
@@ -52,7 +52,10 @@ const useStyles = makeStyles((theme) => ({
   },
   button: {
     textTransform: "none",
-    animation: " blink 2s ease-in infinite",
+    border: "1px solid",
+    marginTop: "40px",
+    fontWeight: 1000,
+    animation: " blinkBtn 1.5s cubic-bezier(0.85, 0, 0.15, 1) infinite",
   },
 }));
 
@@ -101,19 +104,18 @@ export default function Home(props) {
         </Grid >
         <Grid item xs={12} container justify="center">
           {progress > 0 &&
-            <ThemeProvider theme={Themecolor[6]}>
-              <Button
-                variant="outlined"
-                size="small"
-                color="primary"
-                className={classes.button}
-                endIcon={<ReplayIcon />}
-                onClick={handleChange}
-                mb={3}
-              >
-                다시보기
+            <Button
+              variant="outlined"
+              size="small"
+              color="primary.dark"
+              className={classes.button}
+              endIcon={<ReplayIcon />}
+              onClick={handleChange}
+              mb={3}
+            >
+              다시보기
                 </Button>
-            </ThemeProvider>}
+          }
         </Grid >
         {progress > 0 && <Box className={classNames("animate__animated", classes.mention, "animate__fadeIn",)} textAlign="center" justifyContent="center" >
           더보기

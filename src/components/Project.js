@@ -4,6 +4,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 // import NotionIcon from '/notion.svg';
 // import { ReactComponent as Logo } from '/notion.svg';
 import Typography from '@material-ui/core/Typography';
@@ -20,9 +21,34 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "center",
     color: theme.palette.text.secondary,
   },
+  tooltip: {
+    left: "50%",
+    top: "60px",
+    textAlign: "center",
+  },
 }));
 
 const projects = [
+  {
+    name: "팩타고라",
+    subtitle: `다양한 정보들을 문장으로 요약하고, 문장간의 인과관계를 통해 신뢰도를 나타내는 서비스 플랫폼입니다. `,
+    description: `프론트엔드 개발 기술 트렌드를 반영한 기술스택을 사용하여 개발하였으며\n
+    초기 기획단계부터 함께하여 어플리케이션 릴리즈까지 진행하였습니다.`,
+    mypart: [
+      `1. 개발환경 구축 및 개발\n
+    - Node.js+GraphQL+Prisma 백엔드 개발\n
+    - React-Native.js+Apollo 로 구성된 프론트 프레임워크 개발`,
+      `2. Git 을 통한 형상관리, CI 적용\n
+    - github와 travis CI 이용하여 앱,서버 빌드테스트 적용\n
+    - 어플 추출 및 릴리즈 심사`],
+    date: " 2020.01 ~ 2020.05 ",
+    stacks: ['graphql', 'node', 'apollo', 'reactnative', 'prisma', 'aws'],
+    img: "ggotgil.png",
+    link: {
+      homepage: "https://factagora.com/",
+    },
+    task: ["full stack", "deploy"],
+  },
   {
     name: "꽃길",
     subtitle: `온라인으로 부조금을 송금 및 관리할 수 있는 웹 어플리케이션 \n(NH 농협 핀테크 공모전 참가)`,
@@ -67,7 +93,7 @@ const projects = [
   {
     name: "Circus",
     subtitle: `온라인으로 교내외 스터디를 만들고 \n참여할 수 있도록 돕는 웹 서비스 플랫폼`,
-    description: `프론트엔드를 맡아 프로젝트를 진행하였습니다`,
+    description: `교내 웹시스템 설계 과목을 수강하며 진행한 프로젝트입니다. 프론트엔드와 디자인을 맡아 프로젝트를 진행하였습니다`,
     mypart: [
       `restful 한 API 설계`,
       `session 쿠키 관리를 통한 클라이언트 인증 방식 도입`,
@@ -94,6 +120,7 @@ const projects = [
     img: "hantorism.gif",
     link: {
       github: "http://github.com/jeky22/hantorism",
+      notion: "https://www.notion.so/hantorism/Hantorism-28e0ca98178742d7912ae0ef2f8b94d0",
     },
     task: ["publishing", "design"],
 
@@ -180,6 +207,10 @@ export default function AutoGrid() {
 
   return (
     <div>
+      {/* <Box position="absolute" className={classes.tooltip} justifyContent="center"  >
+        <Box>마우스를 올려보세요</Box>
+        <ExpandMoreIcon style={{ fontSize: 40 }} />
+      </Box> */}
       <Typography variant="h5"> {"<Project />"} </Typography>
       <Slider {...settings} >
         {projects.map((i, index) =>

@@ -65,6 +65,10 @@ const useStyles = makeStyles((theme) => ({
   colorCustom: {
     color: "red"
   },
+  button:{
+    // border: "1px solid",
+    animation: " blinkBtn 1.5s cubic-bezier(0.85, 0, 0.15, 1) infinite",
+  },
   badge: {
     float: "right",
     marginRight: "20px",
@@ -83,9 +87,9 @@ export default function Skills(props) {
   return (
     <div>
       {props.start && <div>
-        <Typography variant="h5"> {"<Skills />"} </Typography>
+        <Typography variant="h5"> {details?"<Main-Skills />":"<Sub-Skills />"} </Typography>
         <Box justifyContent="flex-end" display="flex" className={classes.vertical}>
-          <Button size="small" onClick={() => setDetail(!details)}>
+          <Button size="small" variant="outlined" className={classes.button} onClick={() => setDetail(!details)}>
             {details ? "Sub_Skills\t\>" : "Main_Skills\t\>"}
           </Button>
         </Box>

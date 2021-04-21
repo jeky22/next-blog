@@ -66,6 +66,7 @@ fonts.typography.body1 = {
   },
 };
 fonts.typography.body2 = {
+  fontSize: '0.85rem',
   [fonts.breakpoints.down('xs')]: {
     fontSize: '0.75rem',
   },

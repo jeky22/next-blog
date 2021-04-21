@@ -15,7 +15,7 @@ import Tab from '@material-ui/core/Tab';
 import Link from '@material-ui/core/Link';
 import AppBar from '@material-ui/core/AppBar';
 import { color, fontWeight, positions } from '@material-ui/system';
-
+import Head from "next/head"
 import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 import RestoreIcon from '@material-ui/icons/Restore';
@@ -131,6 +131,17 @@ export default function Index() {
   ]
   return (
     <span>
+      <Head>
+        <meta name="google-site-verification" content="RN2CstU6sdPwa8PeQ71QqsRvC9CIsh8oMrLh3sZQqsQ" />
+        <title>프론트엔드 개발자 - 이제찬 포트폴리오 웹사이트</title>
+        <meta name="title" content="프론트엔드 개발자 - 이제찬 포트폴리오 웹사이트" key="title" />
+        <meta name="description" content='인터랙티브한 웹 개발을 지향하는 프론트엔드 개발자 이제찬입니다. "어떻게 하면 사용자가 더 쓰기편한 서비스를 만들 수 있을까?"에 대하여 늘 고민하며 개발합니다.' key="description" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
+        <link rel="manifest" href="/favicon/site.webmanifest" />
+        <meta name="viewport" content="target-densitydpi=device-dpi, user-scalable=0, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, width=device-width" />
+      </Head>
       <ThemeProvider theme={fonts}>
         <AppBar color="transparent" position="fixed" className={classes.root}>
           <Tabs
@@ -152,22 +163,22 @@ export default function Index() {
         <ReactFullpage
           onLeave={onLeave}
           scrollingSpeed={1000}
-          touchSensitivity={50}
+          touchSensitivity={5}
           sectionsColor={["", "", "", lightBlue['50']]}
           render={(comp) =>
-            console.log("render prop change") || (
-              <ReactFullpage.Wrapper >
-                <Grid container>
-                  {all.map((item, index) => (
-                    <Grid container data-anchor={index} item xs={12} key={index.toString()} className="section">
-                      <Grid item xs={11} sm={10} md={8} className={classes.gridMargin} >
-                        {item}
-                      </Grid>
+          (
+            <ReactFullpage.Wrapper >
+              <Grid container>
+                {all.map((item, index) => (
+                  <Grid container data-anchor={index} item xs={12} key={index.toString()} className="section">
+                    <Grid item xs={11} sm={10} md={8} className={classes.gridMargin} >
+                      {item}
                     </Grid>
-                  ))}
-                </Grid>
-              </ReactFullpage.Wrapper>
-            )}
+                  </Grid>
+                ))}
+              </Grid>
+            </ReactFullpage.Wrapper>
+          )}
         />
       </ThemeProvider>
     </span>

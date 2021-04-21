@@ -84,7 +84,7 @@ export default function Home(props) {
   }
 
   return (
-    <div>
+    <span>
       <Background />
       {/* <Fireworks/> */}
       <Grid container justify="center"  >
@@ -107,7 +107,6 @@ export default function Home(props) {
             <Button
               variant="outlined"
               size="small"
-              color="primary.dark"
               className={classes.button}
               endIcon={<ReplayIcon />}
               onClick={handleChange}
@@ -126,6 +125,6 @@ export default function Home(props) {
           </Box>
         </Box >}
       </Grid >
-    </div>
+    </span>
   )
 }

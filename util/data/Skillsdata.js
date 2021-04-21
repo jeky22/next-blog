@@ -8,7 +8,7 @@ export const Skillsdata = {
   "Front": [
     { name: "Vue.js", percent: 80, color: "primary", imgsrc: "vue",main:true },
     { name: "React.js", percent: 60, color: "primary", imgsrc: "react",main:true },
-    { name: "Next.js", percent: 40, color: "secondary", imgsrc: "react",main:false },
+    { name: "Next.js", percent: 60, color: "secondary", imgsrc: "next",main:false },
     { name: "React-Native.js", percent: 60, color: "secondary", imgsrc: "react",main:false },
   ],
   "Back": [

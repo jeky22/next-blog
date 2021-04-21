@@ -8,6 +8,7 @@ import Divider from '@material-ui/core/Divider';
 
 import SvgIcon from '@material-ui/core/SvgIcon';
 import AlarmIcon from '@material-ui/icons/Alarm';
+import DesktopWindowsIcon from '@material-ui/icons/DesktopWindows';
 import IconButton from '@material-ui/core/IconButton';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import YouTubeIcon from '@material-ui/icons/YouTube';
@@ -45,10 +46,11 @@ const useStyles = makeStyles((theme) => ({
     paddingLeft: theme.spacing(1),
   },
   backbadge: {
-    paddingRight: theme.spacing(9),
     paddingLeft: theme.spacing(1),
-    paddingTop: theme.spacing(1),
-    margin: "auto"
+    paddingRight: theme.spacing(1),
+    '& > *': {
+      margin: "auto 0"
+    },
   },
   backstack: {
     position: "fixed",
@@ -71,6 +73,18 @@ const useStyles = makeStyles((theme) => ({
     margin: "auto",
     marginBottom: "16px",
     backgroundColor: "white",
+  },
+  taskchip: {
+    display: 'flex',
+    justifyContent: 'center',
+    flexWrap: 'wrap',
+    '& > p': {
+      whiteSpace: "nowrap",
+      margin: 0
+    },
+    '& > div': {
+      margin:theme.spacing(0.5)
+    },
   },
 
 }))
@@ -100,24 +114,24 @@ export default function RecipeReviewCard(props) {
             </Typography>
           </div>
           <div className="back">
-            <Typography variant="body1" >#세부사항 </Typography>
+            <Typography variant="body1"> <b>#세부사항</b> </Typography>
             <Box justifyContent="space-between" display="flex" className={classes.backbadge}>
-              <Typography variant="body">개발 일자 : </Typography>
-              <img src={`https://img.shields.io/github/last-commit/${props.github}?style=plastic`} />
+              <Typography className={classes.backtag} variant="body2">개발 일자 : </Typography>
+              <img className={classes.backtag} src={`https://img.shields.io/github/last-commit/${props.github}?style=plastic`} />
             </Box>
             <Box justifyContent="space-between" display="flex" className={classes.backbadge}>
-              <Typography variant="body">개발 직무 : </Typography>
-              <Box><img className={classes.badgestyle} src={`https://img.shields.io/badge/-Frontend-brightgreen`} />
-                <img className={classes.badgestyle} src={`https://img.shields.io/badge/-Design-brightgreen`} />
-                <img className={classes.badgestyle} src={`https://img.shields.io/badge/-Backend-brightgreen`} /></Box>
+              <Typography className={classes.backtag} variant="body2">개발 직무 : </Typography>
+              <Box className={classes.backtag} className={classes.taskchip}>
+                {props.task.map(t=><Chip label={t} key={t} variant="outlined" size="small" />)}
+              </Box>
             </Box>
             <Box className={classes.backtypography}>
-              <Typography variant="body1" className={classes.backtypography} display="block">#나의 기여도 </Typography>
+              <Typography variant="body1" className={classes.backtypography} display="block"><b>#나의 기여도</b> </Typography>
               {props.mypart && props.mypart.map((content, index) => <Typography key={index.toString()} className={classes.backtable} variant="body2">✔ {content}</Typography>)}
             </Box>
             <Box className={classes.backstack}>
               <Divider variant="middle" />
-              <Typography variant="body1" className={classes.backtypography} display="block">#기술스택 </Typography>
+              <Typography variant="body1" className={classes.backtypography} display="block"><b>#기술스택</b> </Typography>
               <Box justifyContent="space-between" display="block" >
                 {props.stacks && props.stacks.map(item =>
                   <Chip
@@ -137,10 +151,10 @@ export default function RecipeReviewCard(props) {
       <div>
         <Box onMouseLeave={() => setValue("")} textAlign="center" className={classes.boxstyle} borderRadius={16} boxShadow={4}>
           <BottomNavigation value={value}>
-            <BottomNavigationAction onMouseEnter={handleChange} label="Recents" value="Recents" icon={<AlarmIcon />} />
-            <BottomNavigationAction onMouseEnter={handleChange} label="Video" value="Video" icon={<YouTubeIcon />} />
-            <BottomNavigationAction onMouseEnter={handleChange} label="Notion" value="Notion" icon={NotionIcon} />
-            <BottomNavigationAction onMouseEnter={handleChange} label="Github" value="Github" icon={<GitHubIcon />} />
+            {props.link.github && <BottomNavigationAction target="_blank" href={props.link.github} onMouseEnter={handleChange} label="Github" value="Github" icon={<GitHubIcon />} />}
+            {props.link.demo && <BottomNavigationAction target="_blank" href={props.link.demo} onMouseEnter={handleChange} label="Demo" value="Demo" icon={<DesktopWindowsIcon />} />}
+            {props.link.video && <BottomNavigationAction target="_blank" href={props.link.video} onMouseEnter={handleChange} label="Video" value="Video" icon={<YouTubeIcon />} />}
+            {props.link.notion && <BottomNavigationAction target="_blank" href={props.link.notion} onMouseEnter={handleChange} label="Notion" value="Notion" icon={NotionIcon} />}
           </BottomNavigation>
         </Box>
       </div>

@@ -33,7 +33,14 @@ const projects = [
       ` webpack, babel을 활용하여 es6도입 및 scss파일 번들링, 배포`,],
     github: `jeky22/NHfintech-frontend`,
     stacks: ['vue', 'node', 'mysql', 'aws', 'bootstrap'],
-    img: "ggotgil.png"
+    img: "ggotgil.png",
+    link: {
+      github: "http://github.com/jeky22/NHfintech-frontend",
+      video: "https://www.youtube.com/watch?v=if5IwPW71lI",
+      notion: "https://www.notion.so/NH-f8871f8922e44690863bcee1c52debca",
+      demo: "http://ggotgil.s3-website.ap-northeast-2.amazonaws.com/login",
+    },
+    task: ["front", "design"],
   },
   {
     name: "Let Eat, Go",
@@ -47,7 +54,15 @@ const projects = [
     ],
     github: `jeky22/returnICE-frontend`,
     stacks: ['vue', 'node', 'mysql', 'aws', 'bootstrap'],
-    img: "leteatgo.png"
+    img: "leteatgo.png",
+    link: {
+      github: "http://github.com/returnICE/frontend",
+      video: "https://youtu.be/L88IHBbCNj0",
+      notion: "https://www.notion.so/81f5ce3c89904f6592f3203e1e5e76c3",
+      demo: "http://ajoucapstoneweb.s3-website.ap-northeast-2.amazonaws.com/",
+    },
+    task: ["front", "back", "deploy"],
+
   },
   {
     name: "Circus",
@@ -60,7 +75,11 @@ const projects = [
     ],
     github: `jeky22/webproject`,
     stacks: ['vue', 'node', 'mongodb', 'bootstrap'],
-    img: "circus.gif"
+    img: "circus.gif",
+    link: {
+      github: "http://github.com/jeky22/webproject",
+    },
+    task: ["front", "design"],
   },
   {
     name: "한터리즘",
@@ -72,7 +91,11 @@ const projects = [
     ],
     github: `jeky22/hantorism`,
     stacks: ['django', 'mysql', 'aws', 'bootstrap'],
-    img: "hantorism.gif"
+    img: "hantorism.gif",
+    link: {
+      github: "http://github.com/jeky22/hantorism",
+    },
+    task: ["publishing", "design"],
 
   },
 ]
@@ -124,12 +147,12 @@ function SamplePrevArrow(props) {
 const settings = {
   dots: true,
   centerMode: true,
-  focusOnSelect: true,
+  focusOnSelect: false,
   speed: 500,
   slidesToShow: 3,
   slidesToScroll: 1,
   initialSlide: 1,
-  swipeToSlide: true,
+  swipeToSlide: false,
   centerPadding: "0",
   responsive: [
     {

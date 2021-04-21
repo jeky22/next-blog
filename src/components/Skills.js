@@ -9,8 +9,9 @@ import React, { useEffect, useState } from 'react';
 import { Skillsdata } from '../../util/data/Skillsdata.js'
 import Button from '@material-ui/core/Button';
 import classNames from 'classnames';
-
-
+import RadioButtonCheckedIcon from '@material-ui/icons/RadioButtonChecked';
+import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
+import { B } from '@fullpage/react-fullpage';
 function LinearProgressWithLabel(props) {
   const classes = useStyles();
 
@@ -31,8 +32,9 @@ function LinearProgressWithLabel(props) {
         avatar={<Avatar src={props.imgsrc + ".png"} />}
         label={props.name}
         clickable
+        onDelete={() => { false }}
         color={props.color}
-        deleteIcon={<DoneIcon />}
+        deleteIcon={props.use ? <FiberManualRecordIcon className={classes.icon} /> : <p></p>}
         style={{ width: "163px", justifyContent: "flex-start" }}
       />
       <Box width="100%" mr={1} ml={2}>
@@ -65,7 +67,7 @@ const useStyles = makeStyles((theme) => ({
   colorCustom: {
     color: "red"
   },
-  button:{
+  button: {
     // border: "1px solid",
     animation: " blinkBtn 1.5s cubic-bezier(0.85, 0, 0.15, 1) infinite",
   },
@@ -77,6 +79,12 @@ const useStyles = makeStyles((theme) => ({
     paddingRight: "10px",
     // border: "2px solid",
     // BorderColor: theme
+  },
+  icon: {
+    color: '#5fff00',
+    paddingLeft: '5px',
+    paddingRight: '5px',
+    animation: 'ripple 1.2s infinite ease-in-out',
   }
 }));
 
@@ -87,8 +95,12 @@ export default function Skills(props) {
   return (
     <div>
       {props.start && <div>
-        <Typography variant="h5"> {details?"<Main-Skills />":"<Sub-Skills />"} </Typography>
+        <Typography variant="h5"> {details ? "<Main-Skills />" : "<Sub-Skills />"} </Typography>
         <Box justifyContent="flex-end" display="flex" className={classes.vertical}>
+          <Typography variant="body2" display="flex" style={{ margin: "auto 20px auto 0" }} >
+            <FiberManualRecordIcon className={classes.icon} />
+              포트폴리오에 사용한 기술
+           </Typography>
           <Button size="small" variant="outlined" className={classes.button} onClick={() => setDetail(!details)}>
             {details ? "Sub_Skills\t\>" : "Main_Skills\t\>"}
           </Button>

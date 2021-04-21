@@ -43,7 +43,7 @@ const projects = [
     - 어플 추출 및 릴리즈 심사`],
     date: " 2020.01 ~ 2020.05 ",
     stacks: ['graphql', 'node', 'apollo', 'reactnative', 'prisma', 'aws'],
-    img: "ggotgil.png",
+    img: "factagora.png",
     link: {
       homepage: "https://factagora.com/",
     },
@@ -178,7 +178,7 @@ const settings = {
   speed: 500,
   slidesToShow: 3,
   slidesToScroll: 1,
-  initialSlide: 1,
+  initialSlide: 0,
   swipeToSlide: false,
   centerPadding: "0",
   responsive: [

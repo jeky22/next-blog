@@ -12,6 +12,7 @@ import DesktopWindowsIcon from '@material-ui/icons/DesktopWindows';
 import IconButton from '@material-ui/core/IconButton';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import YouTubeIcon from '@material-ui/icons/YouTube';
+import HomeIcon from '@material-ui/icons/Home';
 import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 
@@ -24,7 +25,9 @@ const useStyles = makeStyles((theme) => ({
 
   subtitle: {
     fontWeight: 600,
-    padding: theme.spacing(2),
+    paddingLeft: theme.spacing(2),
+    paddingRight: theme.spacing(2),
+    paddingTop: theme.spacing(1),
     whiteSpace: "pre-wrap",
   },
   cover: {
@@ -40,7 +43,9 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(2),
   },
   backtable: {
-    paddingTop: theme.spacing(1),
+    paddingTop: theme.spacing(2),
+    whiteSpace: "pre-wrap",
+    lineHeight: "10px",
   },
   badgestyle: {
     paddingLeft: theme.spacing(1),
@@ -61,10 +66,13 @@ const useStyles = makeStyles((theme) => ({
     right: 0
   },
   backtypography: {
-    marginTop: theme.spacing(3)
+    paddingTop: theme.spacing(1),
+  },
+  backmycontribute: {
+    paddingTop: theme.spacing(1),
   },
   backchip: {
-    marginTop: theme.spacing(3),
+    marginTop: theme.spacing(1),
     marginRight: theme.spacing(1)
   },
   boxstyle: {
@@ -83,7 +91,7 @@ const useStyles = makeStyles((theme) => ({
       margin: 0
     },
     '& > div': {
-      margin:theme.spacing(0.5)
+      margin: theme.spacing(0.5)
     },
   },
 
@@ -93,10 +101,10 @@ const useStyles = makeStyles((theme) => ({
 export default function RecipeReviewCard(props) {
   const classes = useStyles();
   const [value, setValue] = useState('recents');
-
   const handleChange = (event) => {
     setValue(event.target.innerText);
   };
+
   return (
     <div>
       <div className="card-container ">
@@ -117,15 +125,16 @@ export default function RecipeReviewCard(props) {
             <Typography variant="body1"> <b>#세부사항</b> </Typography>
             <Box justifyContent="space-between" display="flex" className={classes.backbadge}>
               <Typography className={classes.backtag} variant="body2">개발 일자 : </Typography>
-              <img className={classes.backtag} src={`https://img.shields.io/github/last-commit/${props.github}?style=plastic`} />
+              {props.github ? <img className={classes.backtag} src={`https://img.shields.io/github/last-commit/${props.github}?style=plastic`} />
+                : <Box className={classes.backtag} >{props.date} </Box>}
             </Box>
             <Box justifyContent="space-between" display="flex" className={classes.backbadge}>
               <Typography className={classes.backtag} variant="body2">개발 직무 : </Typography>
               <Box className={classes.backtag} className={classes.taskchip}>
-                {props.task.map(t=><Chip label={t} key={t} variant="outlined" size="small" />)}
+                {props.task.map(t => <Chip label={t} key={t} variant="outlined" size="small" />)}
               </Box>
             </Box>
-            <Box className={classes.backtypography}>
+            <Box className={classes.backmycontribute}>
               <Typography variant="body1" className={classes.backtypography} display="block"><b>#나의 기여도</b> </Typography>
               {props.mypart && props.mypart.map((content, index) => <Typography key={index.toString()} className={classes.backtable} variant="body2">✔ {content}</Typography>)}
             </Box>
@@ -155,6 +164,7 @@ export default function RecipeReviewCard(props) {
             {props.link.demo && <BottomNavigationAction target="_blank" href={props.link.demo} onMouseEnter={handleChange} label="Demo" value="Demo" icon={<DesktopWindowsIcon />} />}
             {props.link.video && <BottomNavigationAction target="_blank" href={props.link.video} onMouseEnter={handleChange} label="Video" value="Video" icon={<YouTubeIcon />} />}
             {props.link.notion && <BottomNavigationAction target="_blank" href={props.link.notion} onMouseEnter={handleChange} label="Notion" value="Notion" icon={NotionIcon} />}
+            {props.link.homepage && <BottomNavigationAction target="_blank" href={props.link.homepage} onMouseEnter={handleChange} label="Homepage" value="Homepage" icon={<HomeIcon />} />}
           </BottomNavigation>
         </Box>
       </div>

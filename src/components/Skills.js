@@ -9,9 +9,12 @@ import React, { useEffect, useState } from 'react';
 import { Skillsdata } from '../../util/data/Skillsdata.js'
 import Button from '@material-ui/core/Button';
 import classNames from 'classnames';
+import Zoom from '@material-ui/core/Zoom';
+import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
+
 import RadioButtonCheckedIcon from '@material-ui/icons/RadioButtonChecked';
 import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
-import { B } from '@fullpage/react-fullpage';
+import Tooltip from '@material-ui/core/Tooltip';
 function LinearProgressWithLabel(props) {
   const classes = useStyles();
 
@@ -87,7 +90,12 @@ const useStyles = makeStyles((theme) => ({
     animation: 'ripple 1.2s infinite ease-in-out',
   }
 }));
-
+const tip = <Typography variant="body2" >
+  초급: 간단한 디버깅을 할 줄 안다.<br />
+  중급: 에러메세지가 친숙하다.<br />
+  고급: 에러가 뜨면 상처받는다.<br />
+  완숙: 에러 메세지를 보면 추억에 잠긴다.
+</Typography>
 export default function Skills(props) {
   const classes = useStyles();
   const [details, setDetail] = useState(true)
@@ -97,6 +105,22 @@ export default function Skills(props) {
       {props.start && <div>
         <Typography variant="h5"> {details ? "<Main-Skills />" : "<Sub-Skills />"} </Typography>
         <Box justifyContent="flex-end" display="flex" className={classes.vertical}>
+          <Tooltip title={tip} placement="top-end" TransitionComponent={Zoom} arrow>
+            <Box display="flex" >
+              <Box>
+                <LinearProgress color="secondary" style={{ width: '93%' }} />
+                <Box display="flex">
+                  <Typography variant="body2" style={{ lineHeight: 1.1, whiteSpace: 'pre-wrap', margin: "auto auto 0" }} >
+                    &nbsp;| 초급 | 중급 | 고급 | 완숙 |<br />
+                    &nbsp;0 &nbsp; - &nbsp;25 &nbsp;- &nbsp;50 &nbsp;-&nbsp; 75 &nbsp;-&nbsp;100%
+                  </Typography>
+                </Box>
+              </Box>
+              <Box>
+                <HelpOutlineIcon color="action" style={{ margin: "3px 10px 0 0" }} />
+              </Box>
+            </Box>
+          </Tooltip>
           <Typography variant="body2" display="flex" style={{ margin: "auto 20px auto 0" }} >
             <FiberManualRecordIcon className={classes.icon} />
               포트폴리오에 사용한 기술

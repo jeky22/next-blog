@@ -134,7 +134,7 @@ export default function Index() {
     <span>
       <Head>
         <meta name="google-site-verification" content="RN2CstU6sdPwa8PeQ71QqsRvC9CIsh8oMrLh3sZQqsQ" />
-        <meta name="naver-site-verification" content="1917c6dc095426f5c000ea5ea4985e1fa72a39a2" />
+        <meta name="naver-site-verification" content="9dc5e97f29aa6182a8714a09b6963a7af711acb2" />
         <title>프론트엔드 개발자 - 이제찬 포트폴리오 웹사이트</title>
         <meta name="title" content="프론트엔드 개발자 - 이제찬 포트폴리오 웹사이트" key="title" />
         <meta name="description" content='인터랙티브한 웹 개발을 지향하는 프론트엔드 개발자 이제찬입니다. "어떻게 하면 사용자가 더 쓰기편한 서비스를 만들 수 있을까?"에 대하여 늘 고민하며 개발합니다.' key="description" />

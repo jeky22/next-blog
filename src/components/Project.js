@@ -30,6 +30,25 @@ const useStyles = makeStyles((theme) => ({
 
 const projects = [
   {
+    name: "개인 포트폴리오",
+    subtitle: `프론트엔드 개발자 포트폴리오 웹사이트 개발 `,
+    description: `Next.js를 사용하여 SSR 웹 개발과 SEO을 중점적으로 개발한 웹사이트입니다.\n
+    몇가지 동적인 요소를 넣어 인터랙티브한 페이지로 만들었습니다.`,
+    mypart: [
+      `Next.js 사용 SSR 웹 개발`,
+      `SEO 진행중 (구글, 네이버 webmasters 분석)`,
+      `fullpage.js, material-UI 등의 library 적용한 빠른 개발`
+    ],
+    github: `jeky22/next-blog`,
+    stacks: ['next', 'react', 'material', 'vercel'],
+    img: "portfolio.png",
+    link: {
+      github: "https://github.com/jeky22/next-blog",
+      homepage: "https://www.jeky22.com/",
+    },
+    task: ["1인 개발"],
+  },
+  {
     name: "팩타고라",
     subtitle: `다양한 정보들을 문장으로 요약하고, 문장간의 인과관계를 통해 신뢰도를 나타내는 서비스 플랫폼입니다. `,
     description: `프론트엔드 개발 기술 트렌드를 반영한 기술스택을 사용하여 개발하였으며\n

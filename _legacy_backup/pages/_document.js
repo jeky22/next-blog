@@ -20,7 +20,6 @@ class AppDocument extends Document {
                 <>
                     {initialProps.styles}
                     {sheet.getStyleElement()}
-                    {/*{sheetStyled.getStyleElement()}*/}
                 </>
             )
         }
@@ -29,7 +28,7 @@ class AppDocument extends Document {
     render() {
         return (
             <Html>
-                <Head/>
+                <Head />
                 <body>
                     <Main />
                     <NextScript />

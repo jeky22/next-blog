@@ -17,19 +17,19 @@ export default function Footer() {
                 >
                     <h2 className="text-2xl font-bold mb-6">Contact Me</h2>
                     <div className="flex flex-col md:flex-row justify-center items-center gap-6 md:gap-12">
-                        <a href="mailto:dlwocks31@gmail.com" className="flex items-center gap-2 hover:text-blue-400 transition-colors">
+                        <a href="mailto:qhzh33@gmail.com" className="flex items-center gap-2 hover:text-blue-400 transition-colors">
                             <FaEnvelope className="text-xl" />
-                            <span>dlwocks31@gmail.com</span>
+                            <span>e-mail</span>
                         </a>
-                        <a href="tel:010-3029-1934" className="flex items-center gap-2 hover:text-blue-400 transition-colors">
+                        {/* <a href="tel:010-3029-1934" className="flex items-center gap-2 hover:text-blue-400 transition-colors">
                             <FaPhone className="text-xl" />
                             <span>010-3029-1934</span>
-                        </a>
+                        </a> */}
                         <a href="https://github.com/jeky22" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-blue-400 transition-colors">
                             <FaGithub className="text-xl" />
                             <span>Github</span>
                         </a>
-                        <a href="https://www.notion.so/Front-End-Engineer-15621b25225e80628e08d6263013d596" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-blue-400 transition-colors">
+                        <a href="https://basalt-diagnostic-0dc.notion.site/2bb0cdbf996d805d9e4efea4b0dd8ac4" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-blue-400 transition-colors">
                             <SiNotion className="text-xl" />
                             <span>Resume (Notion)</span>
                         </a>

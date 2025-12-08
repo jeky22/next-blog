@@ -1,8 +1,9 @@
+import React from 'react';
 import { MdSchool, MdBuild, MdMenuBook, MdWork, MdComputer, MdEventAvailable } from 'react-icons/md';
 
 export interface TimelineItem {
     date: string;
-    icon: React.ElementType;
+    icon: any;
     title: string;
     detail: string;
 }

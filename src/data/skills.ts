@@ -1,23 +1,24 @@
+import React from 'react';
 import { SiTypescript, SiJavascript, SiPython, SiReact, SiNextdotjs, SiVuedotjs, SiMobx, SiRedux, SiStyledcomponents, SiTailwindcss, SiMui, SiNodedotjs, SiNestjs, SiSpringboot, SiAmazon, SiFirebase, SiMysql, SiVercel, SiNetlify, SiGit, SiGithub, SiJira, SiNotion, SiFigma, SiJest, SiGraphql, SiTravisci } from 'react-icons/si';
 import { FaJava, FaCogs, FaCalculator, FaImage, FaFileCode, FaMicrochip, FaLayerGroup, FaDatabase, FaServer, FaTools, FaCloud } from 'react-icons/fa';
 import { MdHttp } from 'react-icons/md';
 
 export interface SkillItem {
     name: string;
-    icon: React.ElementType;
+    icon: any;
 }
 
 export interface SkillCategory {
     title: string;
     description: string[];
     items: SkillItem[];
-    icon: React.ElementType;
+    icon: any;
 }
 
 export interface EngineSkillItem {
     title: string;
     description: string;
-    icon: React.ElementType;
+    icon: any;
     tags: string[];
 }
 

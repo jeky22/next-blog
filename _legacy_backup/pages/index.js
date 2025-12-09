@@ -3,7 +3,7 @@ import Footer from '../src/components/Footer'
 import Timehistory from '../src/components/Timehistory'
 import Title from '../src/components/Title'
 import Skills from '../src/components/Skills'
-import { createMuiTheme, ThemeProvider, responsiveFontSizes, makeStyles } from '@material-ui/core/styles';
+import { createTheme, ThemeProvider, responsiveFontSizes } from '@material-ui/core/styles';
 import { lightBlue } from '@material-ui/core/colors';
 import { Grid } from '@material-ui/core';
 import ReactFullpage from "@fullpage/react-fullpage";
@@ -14,7 +14,7 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Link from '@material-ui/core/Link';
 import AppBar from '@material-ui/core/AppBar';
-import { color, fontWeight, positions } from '@material-ui/system';
+import { makeStyles } from '@material-ui/core/styles';
 
 import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
@@ -23,7 +23,7 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
 // import { Themecolor } from '../util/data/Themecolor.js'
 
-let fonts = createMuiTheme({
+let fonts = createTheme({
   breakpoints: {
     values: {
       xs: 0,

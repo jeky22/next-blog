@@ -1,6 +1,6 @@
 import React from 'react';
 import { SiTypescript, SiJavascript, SiPython, SiReact, SiNextdotjs, SiVuedotjs, SiMobx, SiRedux, SiStyledcomponents, SiTailwindcss, SiMui, SiNodedotjs, SiNestjs, SiSpringboot, SiAmazon, SiFirebase, SiMysql, SiVercel, SiNetlify, SiGit, SiGithub, SiJira, SiNotion, SiFigma, SiJest, SiGraphql, SiTravisci } from 'react-icons/si';
-import { FaJava, FaCogs, FaCalculator, FaImage, FaFileCode, FaMicrochip, FaLayerGroup, FaDatabase, FaServer, FaTools, FaCloud } from 'react-icons/fa';
+import { FaJava, FaCogs, FaCalculator, FaImage, FaFileCode, FaMicrochip, FaLayerGroup, FaDatabase, FaServer, FaTools, FaCloud, FaBriefcase } from 'react-icons/fa';
 import { MdHttp } from 'react-icons/md';
 
 export interface SkillItem {
@@ -20,7 +20,10 @@ export interface EngineSkillItem {
     description: string;
     icon: any;
     tags: string[];
+    imageUrl?: string;
+    details?: string[];
 }
+
 
 export const skillsData: SkillCategory[] = [
     {
@@ -132,6 +135,46 @@ export const skillsData: SkillCategory[] = [
             { name: "Netlify", icon: SiNetlify },
         ]
     },
+];
+
+
+export const domainSkillsData: EngineSkillItem[] = [
+    {
+        title: "Web Editor & Media Platform",
+        description: "웹 문서/오피스 편집기, 노코드 앱 빌더, 이미지·미디어 편집 플랫폼 개발 경험을 보유하고 있습니다.",
+        icon: FaFileCode,
+        tags: ["Web Editor", "Office", "No-Code", "Media Processing"],
+        imageUrl: "/images/domain_editor.svg",
+        details: [
+            "Canvas API 기반의 고성능 이미지 편집기 개발",
+            "WYSIWYG 텍스트 에디터 코어 로직 구현",
+            "동영상/이미지 프로세싱 파이프라인 구축"
+        ]
+    },
+    {
+        title: "Productivity & Collaboration",
+        description: "실시간 협업 기능, 복잡한 편집 UI, 생산성 향상을 위한 대시보드 도구 개발에 특화되어 있습니다.",
+        icon: FaBriefcase,
+        tags: ["Real-time", "Collaboration", "Complex UI", "Dashboard"],
+        imageUrl: "/images/domain_dashboard.svg",
+        details: [
+            "WebSocket/CRDT 기반 실시간 동시 편집 시스템",
+            "드래그 앤 드롭 대시보드 및 위젯 시스템",
+            "대용량 데이터 그리드 및 차트 시각화"
+        ]
+    },
+    {
+        title: "Editor Domain Logic",
+        description: "문서 구조 설계, 컴포넌트 아키텍처, 레이아웃/스타일링 엔진 등 에디터 도메인의 핵심 로직을 구현합니다.",
+        icon: FaLayerGroup,
+        tags: ["Document Structure", "Layout Engine", "Component Architecture"],
+        imageUrl: "/images/domain_architecture.svg",
+        details: [
+            "Virtual DOM 기반 커스텀 렌더링 엔진 설계",
+            "Undo/Redo (History) 매니저 및 커맨드 패턴 구현",
+            "플러그인 시스템 아키텍처 설계"
+        ]
+    }
 ];
 
 export const engineSkillsData: EngineSkillItem[] = [

@@ -1,0 +1,70 @@
+<svg width="400" height="400" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <!-- 배경 -->
+  <rect x="0" y="0" width="400" height="400" rx="40" fill="#F3F4F6"/>
+
+  <!-- 상단 레벨 노드 2개 -->
+  <g transform="translate(70,40)">
+    <rect x="0" y="0" width="110" height="50" rx="14" fill="#1D4ED8"/>
+    <circle cx="27" cy="25" r="10" fill="#EFF6FF"/>
+    <rect x="55" y="18" width="40" height="8" rx="4" fill="#DBEAFE"/>
+
+    <rect x="150" y="0" width="110" height="50" rx="14" fill="#1D4ED8"/>
+    <circle cx="177" cy="25" r="10" fill="#EFF6FF"/>
+    <rect x="205" y="18" width="40" height="8" rx="4" fill="#DBEAFE"/>
+
+    <!-- 중간 레벨로 내려가는 선 -->
+    <line x1="55" y1="50" x2="55" y2="90" stroke="#CBD5F5" stroke-width="4"/>
+    <line x1="205" y1="50" x2="205" y2="90" stroke="#CBD5F5" stroke-width="4"/>
+  </g>
+
+  <!-- 중간 레벨 노드 3개 -->
+  <g transform="translate(50,100)">
+    <rect x="0" y="0" width="110" height="55" rx="14" fill="#1D4ED8"/>
+    <rect x="155" y="0" width="110" height="55" rx="14" fill="#F97316"/>
+    <rect x="310" y="0" width="110" height="55" rx="14" fill="#1D4ED8" transform="translate(-40,0)"/>
+
+    <!-- 각각 안의 아이콘 느낌 -->
+    <rect x="18" y="18" width="24" height="6" rx="3" fill="#DBEAFE"/>
+    <circle cx="50" cy="28" r="6" fill="#DBEAFE"/>
+
+    <polygon points="175,18 205,18 190,36" fill="#FFEDD5"/>
+    <rect x="215" y="18" width="26" height="6" rx="3" fill="#FED7AA"/>
+
+    <circle cx="300" cy="26" r="10" fill="#BFDBFE"/>
+    <rect x="318" y="18" width="26" height="6" rx="3" fill="#DBEAFE"/>
+  </g>
+
+  <!-- 중간에서 하단으로 내려가는 선 -->
+  <g stroke="#CBD5F5" stroke-width="4" fill="none">
+    <line x1="105" y1="155" x2="105" y2="205"/>
+    <line x1="200" y1="155" x2="160" y2="205"/>
+    <line x1="255" y1="155" x2="300" y2="205"/>
+  </g>
+
+  <!-- 하단 노드 4개 -->
+  <g transform="translate(40,205)">
+    <rect x="0" y="0" width="90" height="55" rx="14" fill="#FFFFFF" stroke="#CBD5F5" stroke-width="2"/>
+    <circle cx="25" cy="28" r="8" fill="#38BDF8"/>
+    <rect x="42" y="24" width="32" height="6" rx="3" fill="#CBD5F5"/>
+
+    <rect x="110" y="0" width="90" height="55" rx="14" fill="#FFFFFF" stroke="#CBD5F5" stroke-width="2"/>
+    <rect x="128" y="18" width="40" height="6" rx="3" fill="#CBD5F5"/>
+    <rect x="128" y="32" width="28" height="6" rx="3" fill="#CBD5F5"/>
+
+    <rect x="220" y="0" width="90" height="55" rx="14" fill="#FFFFFF" stroke="#CBD5F5" stroke-width="2"/>
+    <circle cx="245" cy="28" r="8" fill="#10B981"/>
+    <rect x="262" y="24" width="30" height="6" rx="3" fill="#CBD5F5"/>
+
+    <rect x="330" y="0" width="90" height="55" rx="14" fill="#FFFFFF" stroke="#CBD5F5" stroke-width="2"/>
+    <rect x="348" y="18" width="36" height="6" rx="3" fill="#CBD5F5"/>
+    <circle cx="368" cy="34" r="7" fill="#F97316"/>
+  </g>
+
+  <!-- 가장 하단 베이스 레이어 -->
+  <g transform="translate(40,300)">
+    <rect x="0" y="0" width="320" height="60" rx="20" fill="#1D4ED8" opacity="0.9"/>
+    <circle cx="60" cy="30" r="10" fill="#EFF6FF" opacity="0.9"/>
+    <circle cx="100" cy="30" r="7" fill="#38BDF8" opacity="0.9"/>
+    <circle cx="140" cy="30" r="5" fill="#0EA5E9" opacity="0.9"/>
+  </g>
+</svg>

@@ -24,25 +24,25 @@ const TypingEffect = ({ text, delay = 50 }: { text: string; delay?: number }) =>
 
 export default function Header() {
     return (
-        <section className="h-screen flex flex-col justify-center items-center bg-slate-900 text-center px-4 relative overflow-hidden">
+        <section className="min-h-[100dvh] h-screen flex flex-col justify-center items-center bg-slate-900 text-center px-4 relative overflow-hidden">
             {/* 3D Interactive Background */}
             <InteractiveBackground />
 
             {/* Overlay for better text readability */}
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-slate-900/50 to-slate-900 z-0 pointer-events-none"></div>
 
-            <div className="z-10 max-w-4xl mx-auto">
+            <div className="z-10 max-w-4xl mx-auto w-full">
                 <motion.h1
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
-                    className="text-4xl md:text-6xl font-bold text-white mb-6 whitespace-nowrap drop-shadow-lg"
+                    className="text-3xl sm:text-4xl md:text-6xl font-bold text-white mb-6 whitespace-normal md:whitespace-nowrap drop-shadow-lg leading-tight"
                 >
                     <TypingEffect text="5년 차 프론트엔드 개발자 이제찬 입니다." delay={100} />
                     <motion.span
                         animate={{ opacity: [0, 1, 0] }}
                         transition={{ repeat: Infinity, duration: 0.8 }}
-                        className="inline-block w-1 h-8 md:h-12 bg-blue-400 ml-1 align-middle box-shadow-glow"
+                        className="inline-block w-1 h-6 md:h-12 bg-blue-400 ml-1 align-middle box-shadow-glow"
                     />
                 </motion.h1>
 
@@ -50,7 +50,7 @@ export default function Header() {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 3.5, duration: 1 }}
-                    className="text-xl md:text-2xl text-gray-300 mb-8 leading-relaxed font-light"
+                    className="text-lg md:text-2xl text-gray-300 mb-8 leading-relaxed font-light px-2"
                 >
                     "복잡한 문제를 구조화하고, 성능을 극대화하는 것이 제 강점입니다"
                 </motion.p>

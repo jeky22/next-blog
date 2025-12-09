@@ -43,11 +43,7 @@ export default function Footer() {
                     viewport={{ once: true }}
                     className="border-t border-gray-800 pt-8 text-gray-400 text-sm"
                 >
-                    <p className="mb-4 max-w-2xl mx-auto leading-relaxed">
-                        "복잡한 문제를 구조화하고, 성능을 극대화하는 것이 제 강점입니다"<br />
-                        안녕하세요! 5년 차 프론트엔드 개발자 이제찬입니다.<br />
-                        React와 TypeScript를 중심으로 문서 편집기, 노코드 플랫폼, AI 기반 이미지 편집 툴 등 고난도 UI/UX가 요구되는 제품을 다수 개발해왔습니다.
-                    </p>
+
                     <p>© {new Date().getFullYear()} Lee Je Chan. All rights reserved.</p>
                 </motion.div>
             </div>

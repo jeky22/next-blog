@@ -1,7 +1,7 @@
-import { Metadata, Route } from 'next';
+import { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-    const baseUrl = 'https://leejaechan-portfolio.vercel.app'; // TODO: 실제 배포 도메인으로 변경
+    const baseUrl = 'https://제찬.site';
 
     return [
         {

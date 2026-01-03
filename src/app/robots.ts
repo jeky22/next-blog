@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
 
 export default function robots(): MetadataRoute.Robots {
-    const baseUrl = 'https://leejaechan-portfolio.vercel.app'; // TODO: 실제 배포 도메인으로 변경
+    const baseUrl = 'https://제찬.site';
 
     return {
         rules: {
